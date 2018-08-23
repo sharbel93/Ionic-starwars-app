@@ -10,6 +10,9 @@ import { TabsPage } from './../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { FavoriteProvider } from '../providers/favorite/favorite';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
   ],
   imports: [
     BrowserModule,HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +35,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     SplashScreen,
     EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    FavoriteProvider
   ]
 })
 export class AppModule {}
