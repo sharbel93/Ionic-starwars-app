@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { ApiProvider } from './../../providers/api/api';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,7 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PlanetsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  planets: Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiProvider: ApiProvider) {
+    this.planets = this.apiProvider.getPlanets();
+    this.planets.subscribe(data => { console.log('planets: ', data)});
+
+  }
+
+
+  openPlanetsDetails(planet) {
+    this.navCtrl.push('PlanetDetailsPage', {planet: planet});
   }
 
   ionViewDidLoad() {

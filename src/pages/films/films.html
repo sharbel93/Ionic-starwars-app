@@ -14,6 +14,10 @@
 
 
 <ion-content padding>
-<button ion-button full (click)="openDetails()">Go to Details</button>
-<button ion-button full (click)="goToPlanets()">Switch to Planets</button>
+<ion-list>
+<button ion-item *ngFor="let film of (films | async)?.results" (click)="openFilmDetails(film)" >
+{{ film.title }}
+   <ion-icon item-end ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+</button>
+</ion-list>
 </ion-content>

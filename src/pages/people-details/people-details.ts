@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the FilmDetailsPage page.
+ * Generated class for the PeopleDetailsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,25 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-film-details',
-  templateUrl: 'film-details.html',
+  selector: 'page-people-details',
+  templateUrl: 'people-details.html',
 })
-export class FilmDetailsPage {
+export class PeopleDetailsPage {
 
-  film: any;
+  people: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.film = this.navParams.get('film');
+    this.people = this.navParams.get('people');
   }
 
-  // goBack() {
-  //   this.navCtrl.pop();
-  // }
-
-
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FilmDetailsPage');
+    console.log('ionViewDidLoad PeopleDetailsPage');
   }
 
 }

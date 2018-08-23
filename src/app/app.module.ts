@@ -7,7 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { TabsPage } from './../pages/tabs/tabs';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { TabsPage } from './../pages/tabs/tabs';
     TabsPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -26,7 +27,8 @@ import { TabsPage } from './../pages/tabs/tabs';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider
   ]
 })
 export class AppModule {}

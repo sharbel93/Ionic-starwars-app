@@ -1,5 +1,8 @@
+import { Observable } from 'rxjs/Observable';
+import { ApiProvider } from './../../providers/api/api';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 
 /**
  * Generated class for the PeoplePage page.
@@ -15,8 +18,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PeoplePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  peoples: Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiProvider: ApiProvider) {
+    this.peoples = this.apiProvider.getPeople();
+    this.peoples.subscribe(data => { console.log('people: ', data)});
   }
+
+openPeopleDetails(people) {
+  this.navCtrl.push('PeopleDetailsPage', {people: people});
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeoplePage');

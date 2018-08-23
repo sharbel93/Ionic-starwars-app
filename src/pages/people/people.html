@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-
+<ion-list>
+<button ion-item *ngFor="let people of (peoples | async)?.results" (click)="openPeopleDetails(people)" >
+{{ people.name }}
+   <ion-icon item-end ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+</button>
+</ion-list>
 </ion-content>
